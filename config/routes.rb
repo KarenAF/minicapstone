@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get '/store' => 'fruits#store'
   get '/query_params_example' => 'params#query_params'
-
   get '/fruits' => 'fruits#index'
-  
+  get '/fruits/new' => 'fruits#new'
+  post '/fruits' => 'fruits#create'
+  get '/fruits/:id' => 'fruits#show'
+  get '/fruits/:id/edit' => 'fruits#edit'
+  patch '/fruits/:id' => 'fruits#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
