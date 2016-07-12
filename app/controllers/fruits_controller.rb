@@ -30,6 +30,15 @@ class FruitsController < ApplicationController
   end
 
   def update
+    @fruit = Fruit.find_by(id: params['id'])
+    @fruit.update(
+      name: params['name'],
+      price: params['price'],
+      image: params['image'],
+      description: params['description']
+    )
+    @fruit.save
+    render 'update.html.erb'
   end
 end
 
