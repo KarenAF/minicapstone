@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/fruits/:id' => 'fruits#show'
   get '/fruits/:id/edit' => 'fruits#edit'
   patch '/fruits/:id' => 'fruits#update'
+  get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

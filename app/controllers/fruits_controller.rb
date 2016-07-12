@@ -40,6 +40,12 @@ class FruitsController < ApplicationController
     @fruit.save
     render 'update.html.erb'
   end
+
+  def destroy
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.destroy
+    render 'destory.html.erb'
+  end
 end
 
 

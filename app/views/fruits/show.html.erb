@@ -5,5 +5,11 @@
 <div>
 <a href="/fruits">Back to all fruits</a>
 <br>
-<a href="/fruits/<%= @fruit.id %>/edit">Edit this recipe</a>
+<a href="/fruits/<%= @fruit.id %>/edit">Edit this fruit</a>
+</div>
+<div>
+<a href="/fruits/new">Create new fruit</a>
+</div>
+<div>
+  <%= link_to "Delete this recipe", "/recipes/#{@recipe.id}", method: :delete %>
 </div>
