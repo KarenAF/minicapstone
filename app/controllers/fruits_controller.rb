@@ -1,6 +1,6 @@
 class FruitsController < ApplicationController
   def index
-    @fruits = Fruit.all
+    @fruits = Fruit.all.sort
     render 'index.html.erb'
   end
 
@@ -42,9 +42,9 @@ class FruitsController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe.destroy
-    render 'destory.html.erb'
+    @fruit = Fruit.find_by(id: params[:id])
+    @fruit.destroy
+    render 'destroy.html.erb'
   end
 end
 
