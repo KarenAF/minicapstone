@@ -16,7 +16,7 @@ class FruitsController < ApplicationController
       description: params['description']
     )
     fruit.save
-    flash[:success] = "<%=fruit.name%> successfully added"
+    flash[:success] = "#{fruit.name} successfully added"
     redirect_to '/fruits'
   end
 
@@ -39,6 +39,7 @@ class FruitsController < ApplicationController
       description: params['description']
     )
     @fruit.save
+    flash[:success] = "#{@fruit.name} successfully updated"
     redirect_to "/fruits/#{@fruit.id}"
   end
 
