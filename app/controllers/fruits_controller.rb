@@ -8,11 +8,6 @@ class FruitsController < ApplicationController
     render 'new.html.erb'
   end
 
-  def show
-    @fruit = Fruit.find_by(id: params['id'])
-    render 'show.html.erb'
-  end
-
   def create
     fruit = Fruit.new(
       name: params['name'],
@@ -21,7 +16,13 @@ class FruitsController < ApplicationController
       description: params['description']
     )
     fruit.save
-    render 'create.html.erb'
+    flash[:success] = "<%=fruit.name%> successfully added"
+    redirect_to '/fruits'
+  end
+
+  def show
+    @fruit = Fruit.find_by(id: params['id'])
+    render 'show.html.erb'
   end
 
   def edit
@@ -38,13 +39,13 @@ class FruitsController < ApplicationController
       description: params['description']
     )
     @fruit.save
-    render 'update.html.erb'
+    redirect_to "/fruits/#{@fruit.id}"
   end
 
   def destroy
     @fruit = Fruit.find_by(id: params[:id])
     @fruit.destroy
-    render 'destroy.html.erb'
+    redirect_to '/fruits'
   end
 end
 
