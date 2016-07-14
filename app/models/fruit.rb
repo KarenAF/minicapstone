@@ -7,6 +7,4 @@ class Fruit < ActiveRecord::Base
     end
     list
   end
-
-  def 
 end
