@@ -1,3 +1,18 @@
 // Place all the styles related to the fruits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: "Gill Sans";
+  margin: 35px;
+  background-image: image-url('green_dust_scratch.png');
+}
+
+h1 {
+  background-color:#FB9347;
+  color:#FFCEA5;
+
+}
+
+.well img {
+  width:69%
+}
