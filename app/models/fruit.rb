@@ -7,4 +7,21 @@ class Fruit < ActiveRecord::Base
     end
     list
   end
+
+  def sale_message
+    if price.to_f < 4
+      return "price per #{name}"
+    elsif price.to_f >= 4
+      return "price per pound"
+    end
+  end
+
+  def tax
+    @tax = price.to_f * 0.09
+    return @tax.round(2)
+  end
+
+  def total
+    (price.to_f * 1.09).round(2)
+  end
 end
