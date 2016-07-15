@@ -21,7 +21,7 @@ class Fruit < ActiveRecord::Base
   end
 
   def total
-    (price.to_f * 1.09).round(2)
+    price * 1.09
   end
 
   def price_class_name
