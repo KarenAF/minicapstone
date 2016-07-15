@@ -1,4 +1,5 @@
 <h2><%= @fruit.name.capitalize %></h2>
+<p><%=@fruit.available_or_not%></p>
 <p><%= number_to_currency(@fruit.total) %> (<%= number_to_currency(@fruit.price) %> + <%= number_to_currency(@fruit.tax) %> tax)</p>
 <p><%= @fruit.sale_message %></p>
 <p><img src = "<%= @fruit.image %>" width="200"></p>

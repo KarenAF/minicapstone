@@ -31,4 +31,12 @@ class Fruit < ActiveRecord::Base
       class_name = ""
     end
   end
+
+  def available_or_not
+    if availability == true
+      return "in stock"
+    else
+      return "out of stock"
+    end
+  end
 end

@@ -13,7 +13,8 @@ class FruitsController < ApplicationController
       name: params['name'],
       price: params['price'],
       image: params['image'],
-      description: params['description']
+      description: params['description'],
+      availability: true
     )
     fruit.save
     flash[:success] = "#{fruit.name} successfully added"
