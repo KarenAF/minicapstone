@@ -1,6 +1,6 @@
 class FruitsController < ApplicationController
   def index
-    @fruits = Fruit.all.sort_by { |k, v| k[:name]}
+    @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}
     render 'index.html.erb'
   end
 
