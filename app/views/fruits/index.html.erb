@@ -1,4 +1,8 @@
 <h1> Fruits available for purchase: </h1>
+<p><a href="/fruits?sort=name"> sort by name </a></p>
+<p><a href="/fruits?sort=price"> sort by price </a></p>
+<p><a href="/fruits/random"> random fruit </a></p>
+<br>
 <% @fruits.each_slice(4) do |three_fruits| %>
 <div class = "row">
   <% three_fruits.each do |fruit| %>

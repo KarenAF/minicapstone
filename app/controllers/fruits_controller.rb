@@ -1,7 +1,27 @@
 class FruitsController < ApplicationController
   def index
-    @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}
-    render 'index.html.erb'
+    if params[:sort] == "price"
+      @fruits = Fruit.order(:price)
+    elsif params[:sort]
+     sort_attribute = params[:sort]
+      @fruits = Fruit.order("lower(#{sort_attribute})").all
+    elsif params[:filter] == "per_pound"
+      @fruits = Fruit.where("price >= ?", 4)
+    elsif params[:filter] == "per_item"
+      @fruits = Fruit.where("price < ?", 4)
+    else 
+      @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}      
+    end    
+      render 'index.html.erb'
+  end
+
+  def search
+    render 'search.html.erb'
+  end
+
+  def random
+    @fruit = Fruit.offset(rand(Fruit.count)).first
+    render 'show.html.erb'
   end
 
   def new

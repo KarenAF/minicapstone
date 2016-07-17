@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   get '/query_params_example' => 'params#query_params'
   get '/fruits' => 'fruits#index'
   get '/fruits/new' => 'fruits#new'
+  get '/fruits/search' => 'fruits#search'
   post '/fruits' => 'fruits#create'
+  get '/fruits/random' => 'fruits#random'
   get '/fruits/:id' => 'fruits#show'
   get '/fruits/:id/edit' => 'fruits#edit'
   patch '/fruits/:id' => 'fruits#update'
   delete '/fruits/:id' => 'fruits#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
