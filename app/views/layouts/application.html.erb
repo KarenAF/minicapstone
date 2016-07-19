@@ -40,12 +40,11 @@
         </li>
       </ul>
       <form class="navbar-form navbar-left" role="search"> 
-      <%= form_tag '/fruits/search', method: :get do %>
+      <%= form_tag '/show.html.erb', method: :get %>
   <div class = "form-group">
         <%= label_tag :search_keyword %>
         <%= text_field_tag :search_keyword %>
         </div>
-        <% end %>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>

@@ -17,6 +17,14 @@
     <%= text_field_tag :description, @fruit.description  %>
   </div>
   <div class = "form-group">
+    <%= label_tag :availability  %>
+    <%= text_field_tag :availability, @fruit.availability  %>
+  </div>
+  <div class = "form-group">
+    <%= label_tag :supplier_id  %>
+    <%= text_field_tag :supplier_id, @fruit.supplier_id %>
+  </div>
+  <div class = "form-group">
     <%= submit_tag "Update fruit" %>
   </div>
 <a href = "/fruits/<%= @fruit.id %>"><p> cancel </p></a>

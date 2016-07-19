@@ -1,4 +1,5 @@
 class FruitsController < ApplicationController
+
   def index
     if params[:sort] == "price"
       @fruits = Fruit.order(:price)
@@ -15,8 +16,9 @@ class FruitsController < ApplicationController
       render 'index.html.erb'
   end
 
-  def search
-    render 'search.html.erb'
+  def search 
+    @fruit = Fruit.find_by(search_keyword: params[:id])    
+    redirect_to 'show.html.erb'
   end
 
   def random
@@ -34,6 +36,7 @@ class FruitsController < ApplicationController
       price: params['price'],
       image: params['image'],
       description: params['description'],
+      supplier_id: params['supplier_id'],
       availability: true
     )
     fruit.save
@@ -57,7 +60,9 @@ class FruitsController < ApplicationController
       name: params['name'],
       price: params['price'],
       image: params['image'],
-      description: params['description']
+      description: params['description'],
+      supplier_id: params['supplier_id'],
+      availability: params['availability']
     )
     @fruit.save
     flash[:success] = "#{@fruit.name} successfully updated"
