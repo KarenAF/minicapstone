@@ -9,7 +9,7 @@
     <a href="/fruits/<%= fruit.id %>"><h2> <%= fruit.name.capitalize %> </a> </h2> 
     <p> <%= fruit.available_or_not%> </p>
     <h3><%= fruit.price %> </h3>
-    <h3> <img src = "<%= fruit.image %>"> <br><br> <%= fruit.description.capitalize %> </h3>
+    <h3> <img src = "<%= fruit.images[0].url %>"> <br><br> <%= fruit.description.capitalize %> </h3>
     <a href="/fruits/<%= fruit.id %>/edit">Edit this fruit</a>
     <br>
     </div>
