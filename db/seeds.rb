@@ -1,44 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-fruit1 = Fruit.new(
-  name: "apple", 
-  price: "1.00", 
-  image: "https://loseitapp.files.wordpress.com/2014/09/istock_000014459318_double.jpg",
-  description: "Crispy red fruit with sweet, tart flavor"
-)
-fruit1.save
-
-fruit2 = Fruit.new(
-  name: "pear", 
-  price: "2.00", 
-  image: "http://www.gourmetegypt.com/media/catalog/product/p/e/pear-imported-united_1.jpg",
-  description: "Soft green juicy fruit with sweet, mellow flavor"
-)
-fruit2.save
-
-fruit3 = Fruit.new(
-  name: "banana", 
-  price: ".20", 
-  image: "http://static1.squarespace.com/static/571ab40be707ebff30747a74/571ab8c6d51cd4f1ca1cc0a5/571ab8c6d51cd4f1ca1cc0a6/1461369034949/banana-08.jpg?format=2500w",
-  description: "long, peelable yellow fruit with soft, sweet, mellow interior"
-)
-fruit3.save
-
-fruit4 = Fruit.new(
-  name: "orange", 
-  price: "1.50", 
-  image: "http://kingofwallpapers.com/orange/orange-003.jpg",
-  description: "round orange fruit with sweet, tangy, juicy sections"
-)
-fruit4.save
-
-
-
-
-
+Fruit.create!([
+  {name: "Watermelon", price: "3.99", image: "https://www.organicfacts.net/wp-content/uploads/2013/05/watermelon2.jpg", description: "juicy melon with red flesh", availability: true, supplier_id: nil},
+  {name: "Blueberry", price: "4.99", image: "http://kingofwallpapers.com/blueberry/blueberry-003.jpg", description: "delightful indigo-colored berry with mysterious, bold flavor.", availability: true, supplier_id: nil},
+  {name: "Starfruit", price: "1.49", image: "http://kauaiseascapesnursery.com/wp-content/uploads/2015/03/starfruit.jpg", description: "Fresh, crispy fruit with star-shaped slices", availability: true, supplier_id: nil},
+  {name: "Peach", price: "0.49", image: "http://c3.thejournal.ie/media/2013/01/roald-dahl-giant-peach-2-390x285.jpg", description: "Fragrant, delicious pink fruit with fuzzy exterior", availability: true, supplier_id: nil},
+  {name: "pineapple", price: "2.99", image: "http://edengourmet.com/wp-content/uploads/2014/11/Pineapple_Garden_of_Eden1.jpg", description: "Tropical fruit with juicy, tangy flavor", availability: true, supplier_id: nil},
+  {name: "Lychee", price: "4.89", image: "https://vespertunes.files.wordpress.com/2015/11/1_lichee.jpg", description: "small, sweet, juicy, white fruit in rough, peelable shell", availability: true, supplier_id: nil},
+  {name: "pear", price: "0.79", image: "http://www.gourmetegypt.com/media/catalog/product/p/e/pear-imported-united_1.jpg", description: "Soft, juicy green fruit with sweet, mellow flavor", availability: true, supplier_id: nil},
+  {name: "orange", price: "0.99", image: "http://kingofwallpapers.com/orange/orange-003.jpg", description: "round orange fruit with sweet, tangy, juicy sections", availability: true, supplier_id: nil},
+  {name: "Raspberry", price: "5.99", image: "http://www.raspberries.us/three-raspberries-636.jpg", description: "soft red berry with delightful, delicate texture", availability: true, supplier_id: nil},
+  {name: "Logan Berry", price: "6.99", image: "http://www.foodsubs.com/Photos/loganberries3.jpg", description: "Long hexaploid berry with burgundy color", availability: true, supplier_id: nil},
+  {name: "Honeydew", price: "2.99", image: "http://www.rockyfordgrowersassociation.com/wp-content/uploads/2013/08/hdew.jpg", description: "sweet, tender melon with light green yellow flesh", availability: true, supplier_id: nil},
+  {name: "cantaloupe", price: "3.5", image: "http://divineflavor.com/wp-content/uploads/2014/05/melon-cantaloupejpg.png", description: "fragrant, juicy orange-fleshed melon with rough exterior", availability: true, supplier_id: nil},
+  {name: "Mango", price: "2.69", image: "http://mangomaniafl.net/wp-content/uploads/2014/06/iStock_000012591574Medium.jpg", description: "Sweet, tender tropical fruit with colorful skin and juicy, fibrous orange flesh", availability: true, supplier_id: nil},
+  {name: "grapes", price: "4.29", image: "http://www.nutritious-food.com/wp-content/uploads/2016/01/grapes-02.jpg", description: "Delicious purple fruits in bunches, grown on the vine.", availability: true, supplier_id: nil},
+  {name: "Papaya", price: "1.49", image: "http://perfectimage-llc.com/wp-content/uploads/2015/08/papaya.jpg", description: "Tropical fruit with colorful skin and black seeds", availability: true, supplier_id: 1},
+  {name: "apple", price: "1.29", image: "https://loseitapp.files.wordpress.com/2014/09/istock_000014459318_double.jpg", description: "Crunchy red fruit with sweet, tart flavor", availability: true, supplier_id: 2},
+  {name: "banana", price: "0.3", image: "http://static1.squarespace.com/static/571ab40be707ebff30747a74/571ab8c6d51cd4f1ca1cc0a5/571ab8c6d51cd4f1ca1cc0a6/1461369034949/banana-08.jpg?format=2500w", description: "long, peelable yellow fruit with soft, sweet, mellow interior", availability: true, supplier_id: 3}
+])
+Supplier.create!([
+  {name: "Tropical Fruits Co.", email: "Info@TPC.com", phone: "800-239-1928"},
+  {name: "Washington Apple Grove", email: "Info@WashingtonApples.com", phone: "800-703-2384"},
+  {name: "Going Bananas Co.", email: "Info@Bananas.com", phone: "800-555-3325"}
+])
