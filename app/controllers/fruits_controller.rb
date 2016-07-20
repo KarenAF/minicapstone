@@ -34,7 +34,6 @@ class FruitsController < ApplicationController
     fruit = Fruit.new(
       name: params['name'],
       price: params['price'],
-      image: params['image'],
       description: params['description'],
       supplier_id: params['supplier_id'],
       availability: true
@@ -59,7 +58,6 @@ class FruitsController < ApplicationController
     @fruit.update(
       name: params['name'],
       price: params['price'],
-      image: params['image'],
       description: params['description'],
       supplier_id: params['supplier_id'],
       availability: params['availability']

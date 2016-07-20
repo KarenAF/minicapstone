@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/query_params_example' => 'params#query_params'
+  get '/' => 'fruits#index'
   get '/fruits' => 'fruits#index'
   get '/fruits/new' => 'fruits#new'
   get '/fruits/search' => 'fruits#search'
@@ -10,15 +11,18 @@ Rails.application.routes.draw do
   patch '/fruits/:id' => 'fruits#update'
   delete '/fruits/:id' => 'fruits#destroy'
 
+  get '/fruits/:fruit_id/images/new' => 'images#new'
+  post '/fruits/:fruit_id/images' => 'images#create'
+
   get '/suppliers' => 'suppliers#index'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 
-  
+
 
 
 

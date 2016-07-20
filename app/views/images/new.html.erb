@@ -1,0 +1,11 @@
+<h1>New Image for: <%= @fruit.name%></h1>
+<%= form_tag '/fruits/#{@fruit.id}/images', method: :post do %>
+  <div class = "form-group">
+    <%= label_tag :url %>
+    <%= text_field_tag :url  %>
+  </div>
+  <div class = "form-group">
+    <%= submit_tag "Add image" %>
+  </div>
+  <a href = "/fruits/"><p> cancel </p></a>
+<% end %>
