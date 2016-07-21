@@ -1,4 +1,14 @@
 <h3>Order Details</h3>
 <h4>Order id: <%= @order.id%> </h4>
-<h4>User id: <%= @order.user_id%> </h4>
+<h4>Buyer User id: <%= @order.user_id%> </h4>
+<h4>Buyer name: <%= @order.user.name %></h4>
+<h4>Buyer email: <%= @order.user.email %></h4>
+<br>
+<h4>Fruit id: <%=@order.fruit_id%></h4>
+<h4>Fruit name: <%=@order.fruit.name%></h4>
+<p><img src = "<%= @order.fruit.images[0].url %>", width="200"> </p>
+<h4>Ordered on: <%= @order.created_at %></h4>
 <h4>Quantity: <%= @order.quantity%></h4>
+<h4>Order Subtotal: <%=@order.subtotal%></h4>
+<h4>Tax: <%=@order.tax%></h4>
+<h4>Total: <%=@order.total%></h4>

@@ -7,7 +7,11 @@
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity, params[:quantity] %>
 </div>
-  <div class = "form-group">
+<div class = "form-group">
+    <%= label_tag :fruit_id %>
+    <%= hidden_field_tag :fruit_id, params[:fruit_id] %>
+</div>
+<div class = "form-group">
   <%= submit_tag "Confirm Purchase", class: "btn btn-success" %>
-  </div>
+</div>
 <% end %>
