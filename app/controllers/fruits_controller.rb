@@ -10,15 +10,12 @@ class FruitsController < ApplicationController
       @fruits = Fruit.where("price >= ?", 4)
     elsif params[:filter] == "per_item"
       @fruits = Fruit.where("price < ?", 4)
-    else 
+    elsif params[:search_terms]
+      @fruits = Fruit.where("name Like?", "%#{params[:search_terms]}%")
+    else
       @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}      
     end    
       render 'index.html.erb'
-  end
-
-  def search 
-    @fruit = Fruit.find_by(search_keyword: params[:id])    
-    redirect_to 'show.html.erb'
   end
 
   def random
@@ -39,8 +36,18 @@ class FruitsController < ApplicationController
       availability: true
     )
     fruit.save
+    image = Image.create(
+      url: params[:url],
+      fruit_id: params[:fruit_id],
+    )
+    image.save
     flash[:success] = "#{fruit.name} successfully added"
     redirect_to '/fruits'
+  end
+
+  def run_search
+    @fruits = Fruit.where("name LIKE ?", "%#{params[search_terms]}")
+    render 'index.html.erb'
   end
 
   def show

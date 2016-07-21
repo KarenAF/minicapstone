@@ -1,0 +1,13 @@
+<p>Here is your order:</p>
+<h4>User id: <%= current_user.id %> </h4>
+<h4>Quantity: <%= params[:quantity]%></h4>
+
+<%= form_tag "/orders", method: :post do %>
+<div class = "form-group">
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity, params[:quantity] %>
+</div>
+  <div class = "form-group">
+  <%= submit_tag "Confirm Purchase", class: "btn btn-success" %>
+  </div>
+<% end %>

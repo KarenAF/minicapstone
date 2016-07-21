@@ -1,5 +1,5 @@
 <h1>New Image for: <%= @fruit.name%></h1>
-<%= form_tag '/fruits/#{@fruit.id}/images', method: :post do %>
+<%= form_tag "/fruits/#{@fruit.id}/images", method: :post do %>
   <div class = "form-group">
     <%= label_tag :url %>
     <%= text_field_tag :url  %>

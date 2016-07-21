@@ -11,6 +11,6 @@ class ImagesController < ApplicationController
       )
       image.save
       flash[:success] = "Image successfully saved!"
-      redirect_to '/fruits/#{params[:fruit_id]}'
+      redirect_to "/fruits/#{params[:fruit_id]}"
     end
 end

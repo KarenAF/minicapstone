@@ -2,6 +2,7 @@
 class Fruit < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
+  has_many :orders
   
   def description_list
     list = []
