@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/fruits/:fruit_id/images/new' => 'images#new'
   post '/fruits/:fruit_id/images' => 'images#create'
+  get '/fruits/:fruit_id/images/edit' => 'images#edit'
+  patch '/fruits/:fruit_id/images' => 'images#update'
 
   get '/suppliers' => 'suppliers#index'
 

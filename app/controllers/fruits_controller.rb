@@ -3,9 +3,11 @@ class FruitsController < ApplicationController
   def index
     if params[:sort] == "price"
       @fruits = Fruit.order(:price)
+    elsif params[:sort] == "supplier_id"
+      @fruits = Fruit.order(:supplier_id).all
     elsif params[:sort]
      sort_attribute = params[:sort]
-      @fruits = Fruit.order("lower(#{sort_attribute})").all
+      @fruits = Fruit.order("lower(#{sort_attribute})").all      
     elsif params[:filter] == "per_pound"
       @fruits = Fruit.where("price >= ?", 4)
     elsif params[:filter] == "per_item"

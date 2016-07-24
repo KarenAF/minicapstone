@@ -1,5 +1,5 @@
 <h1> Fruits available for purchase: </h1>
-<p><a href="/fruits?sort=name"> sort by name </a>   |   <a href="/fruits?sort=price"> sort by price </a>   |   <a href="/fruits/random"> random fruit </a></p>
+<p><a href="/fruits?sort=name"> sort by name </a>   |   <a href="/fruits?sort=price"> sort by price </a>   |  <a href="/fruits?sort=supplier_id"> sort by supplier </a>   |   <a href="/fruits/random"> random fruit </a></p>
 <br>
 <% @fruits.each_slice(4) do |three_fruits| %>
 <div class = "row">
@@ -9,7 +9,12 @@
     <a href="/fruits/<%= fruit.id %>"><h2> <%= fruit.name.capitalize %> </a> </h2> 
     <p> <%= fruit.available_or_not%> </p>
     <h3><%= fruit.price %> </h3>
-    <h3> <img src = "<%= fruit.images[0].url %>"> <br><br> <%= fruit.description.capitalize %> </h3>
+    <h5> <%= fruit.supplier.name %> </h5>
+
+    <% if fruit.images[0] %>
+    <img src = "<%= fruit.images[0].url %>"> <% end %> 
+    <br><br> 
+    <h3> <%= fruit.description.capitalize %> </h3>
     <a href="/fruits/<%= fruit.id %>/edit">Edit this fruit</a>
     <br>
     </div>

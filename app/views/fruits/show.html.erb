@@ -2,11 +2,16 @@
 <p><%=@fruit.available_or_not%></p>
 <p><%= number_to_currency(@fruit.total) %> (<%= number_to_currency(@fruit.price) %> + <%= number_to_currency(@fruit.tax) %> tax)</p>
 <p><%= @fruit.sale_message %></p>
+
+<% if @fruit.images %>
 <% @fruit.images.each do |image| %>
 <p><img src = "<%= image.url %>" width="200"></p>
 <% end %>
+<% end %>
+
 <p><%= @fruit.description %> </p>
 <p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
+<p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
 <p>Supplier: <%= @fruit.supplier.name %> </p>
 
 <%= form_tag "/orders/new", method: :get do %>

@@ -14,11 +14,13 @@ class OrdersController < ApplicationController
       total: (@fruit.tax * params[:quantity].to_i) + (@fruit.price * params[:quantity].to_i)
     )
     order.save
+    flash[:success] = "Product successfully placed in cart!"
     redirect_to "/orders/#{order.id}"
   end
 
   def show
     @order = Order.find_by(id: params[:id])
+    flash[:success] = "Order successfully placed!"
     render 'show.html.erb'
   end
 end
