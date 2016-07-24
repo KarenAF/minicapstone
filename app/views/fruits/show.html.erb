@@ -10,10 +10,14 @@
 <% end %>
 
 <p><%= @fruit.description %> </p>
+
 <h5> Categories:  </h5>
+<% if @fruit.categories %>
 <% @fruit.categories.each do |category| %>
 <p> <%= category.name %> <br> </p>
 <% end %>
+<% end %>
+
 <p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
 <p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
 <p>Supplier: <%= @fruit.supplier.name %> </p>
