@@ -5,6 +5,9 @@ class Fruit < ActiveRecord::Base
   has_many :orders
   has_many :categorized_fruits
   has_many :categories, through: :categorized_fruits
+  has_many :carted_fruits
+  has_many :users, through: :carted_fruits
+  has_many :orders, through: :carted_fruits
   
   def description_list
     list = []

@@ -17,7 +17,7 @@ class FruitsController < ApplicationController
     elsif params[:category]
       @fruits = Category.find_by(name: params[:category]).fruits
     else
-      @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}      
+      @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase} 
     end    
       render 'index.html.erb'
   end

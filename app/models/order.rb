@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  belongs_to :fruit
+  has_many :carted_fruits
+  has_many :fruits, through: :carted_fruits
 end
