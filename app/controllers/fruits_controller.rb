@@ -14,6 +14,8 @@ class FruitsController < ApplicationController
       @fruits = Fruit.where("price < ?", 4)
     elsif params[:search_terms]
       @fruits = Fruit.where("name Like?", "%#{params[:search_terms]}%")
+    elsif params[:category]
+      @fruits = Category.find_by(name: params[:category]).fruits
     else
       @fruits = Fruit.all.sort_by { |k, v| k[:name].downcase}      
     end    
