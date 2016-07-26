@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = current_user.orders
+  end
+
   def create
     @carted_fruits = CartedFruit.where(user_id: current_user.id, status: "carted")
 

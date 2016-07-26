@@ -1,6 +1,7 @@
 class CartedFruitsController < ApplicationController
   def index
     @carted_fruits = CartedFruit.where(user_id: current_user.id, status: 'carted')
+    # @carted_fruits = current_user.carted_fruits.where(status:'carted') (More elegant way)
     if @carted_fruits == []
       flash[:warning] = "Your fruit basket is currently empty."
       redirect_to '/fruits'

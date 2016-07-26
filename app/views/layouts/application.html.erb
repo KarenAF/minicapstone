@@ -70,8 +70,16 @@
             <li><a href="#">Separated link</a></li>
           </ul>          
         </li>        
-      <li><a href="/carted_fruits"> <button type="button" class="btn btn-default" aria-label="Left Align">
-  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+      <li><a href="/carted_fruits"> <button type="button" class="btn btn-default btn-sm" aria-label="Left Align">
+  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> 
+
+  <% items_in_cart = 0 %> 
+  <% CartedFruit.where(user_id: current_user.id, status: "carted").each do |item| %>
+    <% items_in_cart += item.quantity %>
+  <% end %>
+  <%= items_in_cart %>
+
+  </span>
 </button></a></li>
         
       </ul>
