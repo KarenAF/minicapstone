@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   get '/carted_fruits' => 'carted_fruits#index'
   post '/carted_fruits' => 'carted_fruits#create'
-
+  delete '/carted_fruits/:id' => 'carted_fruits#destroy'
 
 
 

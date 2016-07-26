@@ -1,7 +1,12 @@
 class CartedFruitsController < ApplicationController
   def index
     @carted_fruits = CartedFruit.where(user_id: current_user.id, status: 'carted')
-    render 'index.html.erb'
+    if @carted_fruits == []
+      flash[:warning] = "Your fruit basket is currently empty."
+      redirect_to '/fruits'
+    else
+      render 'index.html.erb'
+    end
   end
 
   def create
@@ -18,6 +23,13 @@ class CartedFruitsController < ApplicationController
     )
     carted_fruit.save
     flash[:success] = "Product successfully placed in cart!"
+    redirect_to "/carted_fruits"
+  end
+
+  def destroy
+    @carted_fruit = CartedFruit.find_by(id: params[:id])
+    @carted_fruit.status = "removed"
+    @carted_fruit.save
     redirect_to "/carted_fruits"
   end
 end
