@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
-  def new
-    render 'new.html.erb'
-  end
-
   def create
+    @carted_fruit = CartedFruit.where(user_id: current_user.id, status: "carted")
+    @carted_fruit.each do |carted_fruit|
+      
     @fruit = Fruit.find_by(id: params[:fruit_id])
     order = Order.new(
       quantity: params[:quantity],
