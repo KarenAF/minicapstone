@@ -28,19 +28,7 @@
         <li><a href="/fruits?filter=per_pound">Sold by the pound</a></li>
         <% if current_user %>
         <li><a href="#"><%=current_user.name%></a></li>
-        <li class="dropdown">
         <% end %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
       </ul>
       <%= form_tag '/fruits', method: :get, class: "navbar-form navbar-left" do %>
   <div class = "form-group">
@@ -59,7 +47,7 @@
         <li><a href="/logout">Log out</a></li>
       <% end %>       
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <% Category.all.each do |category| %>
             <li><a href="/fruits?category=<%=category.name%>"><%= category.name %></a></li>
@@ -72,13 +60,7 @@
         </li>        
       <li><a href="/carted_fruits"> <button type="button" class="btn btn-default btn-sm" aria-label="Left Align">
   <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> 
-
-  <% items_in_cart = 0 %> 
-  <% CartedFruit.where(user_id: current_user.id, status: "carted").each do |item| %>
-    <% items_in_cart += item.quantity %>
-  <% end %>
-  <%= items_in_cart %>
-
+  <%= @cart_count %>
   </span>
 </button></a></li>
         
