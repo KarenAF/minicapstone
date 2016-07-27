@@ -15,7 +15,9 @@
     <img src = "<%= fruit.images[0].url %>"> <% end %> 
     <br><br> 
     <h3> <%= fruit.description.capitalize %> </h3>
+    <% if current_user.admin %>
     <a href="/fruits/<%= fruit.id %>/edit">Edit this fruit</a>
+    <% end %>
     <br>
     </div>
 </div>
@@ -24,5 +26,6 @@
 <% end %>
 
 <div>
+<% if current_user && current_user.admin %>
 <h2><a href="/fruits/new">Create new fruit</a></h2>
 </div>
