@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
+  
   before_action :calculate_cart_count
 
   def current_user
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     redirect_to '/login' unless current_user
+  end
+
+  def authenticate_admin! # basically, this is saying: if you ever run this, I'm going to bounce you out, unless you're an admin.
+    redirect_to '/' unless current_user && current_user.admin 
   end
 
   def calculate_cart_count

@@ -1,4 +1,5 @@
 class FruitsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     if params[:sort] == "price"
@@ -28,33 +29,25 @@ class FruitsController < ApplicationController
   end
 
   def new
-    if current_user && current_user.admin
     render 'new.html.erb'
-    else
-    redirect_to '/'
-    end 
   end
 
   def create
-    if current_user && current_user.admin
-      fruit = Fruit.new(
-        name: params['name'],
-        price: params['price'],
-        description: params['description'],
-        supplier_id: params['supplier_id'],
-        availability: true
-      )
-      fruit.save
-      image = Image.create(
-        url: params[:url],
-        fruit_id: params[:fruit_id],
-      )
-      image.save
-      flash[:success] = "#{fruit.name} successfully added"
-      redirect_to '/fruits'
-    else
-      redirect_to '/'
-    end
+    fruit = Fruit.new(
+      name: params['name'],
+      price: params['price'],
+      description: params['description'],
+      supplier_id: params['supplier_id'],
+      availability: true
+    )
+    fruit.save
+    image = Image.create(
+      url: params[:url],
+      fruit_id: params[:fruit_id],
+    )
+    image.save
+    flash[:success] = "#{fruit.name} successfully added"
+    redirect_to '/fruits'
   end
 
   def run_search
@@ -68,40 +61,28 @@ class FruitsController < ApplicationController
   end
 
   def edit
-    if current_user && current_user.admin
-      @fruit = Fruit.find_by(id: params['id'])
-      render 'edit.html.erb'
-    else
-      redirect_to '/'
-    end
+    @fruit = Fruit.find_by(id: params['id'])
+    render 'edit.html.erb'
   end
 
   def update
-    if current_user && current_user.admin
-      @fruit = Fruit.find_by(id: params['id'])
-      @fruit.update(
-        name: params['name'],
-        price: params['price'],
-        description: params['description'],
-        supplier_id: params['supplier_id'],
-        availability: params['availability']
-      )
-      @fruit.save
-      flash[:success] = "#{@fruit.name} successfully updated"
-      redirect_to "/fruits/#{@fruit.id}"
-    else
-      redirect_to '/'
-    end
+    @fruit = Fruit.find_by(id: params['id'])
+    @fruit.update(
+      name: params['name'],
+      price: params['price'],
+      description: params['description'],
+      supplier_id: params['supplier_id'],
+      availability: params['availability']
+    )
+    @fruit.save
+    flash[:success] = "#{@fruit.name} successfully updated"
+    redirect_to "/fruits/#{@fruit.id}"
   end
 
   def destroy
-    if current_user && current_user.admin
-      @fruit = Fruit.find_by(id: params[:id])
-      @fruit.destroy
-      redirect_to '/fruits'
-    else
-      redirect_to '/'
-    end
+    @fruit = Fruit.find_by(id: params[:id])
+    @fruit.destroy
+    redirect_to '/fruits'
   end
 end
 
