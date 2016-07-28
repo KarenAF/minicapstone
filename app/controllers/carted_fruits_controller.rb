@@ -1,4 +1,6 @@
 class CartedFruitsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @carted_fruits = CartedFruit.where(user_id: current_user.id, status: 'carted')
     # @carted_fruits = current_user.carted_fruits.where(status:'carted') (More elegant way)

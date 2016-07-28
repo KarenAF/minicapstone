@@ -1,4 +1,18 @@
 <h1>Edit Fruit:</h1>
+<% if @fruit.errors.any? %>
+
+   <div id="error_explanation">
+     <h5><%= pluralize(@fruit.errors.count, "error") %> prohibited this item from being saved:</h5>
+  
+     <ul>
+     <% @fruit.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+
 <%= form_tag "/fruits/#{@fruit.id}", method: :patch do %>
   <div class = "form-group">
     <%= label_tag :name %>

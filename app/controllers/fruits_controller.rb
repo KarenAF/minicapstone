@@ -1,5 +1,5 @@
 class FruitsController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show]
 
   def index
     if params[:sort] == "price"
@@ -29,25 +29,30 @@ class FruitsController < ApplicationController
   end
 
   def new
+    @fruit = Fruit.new
     render 'new.html.erb'
   end
 
   def create
-    fruit = Fruit.new(
+    @fruit = Fruit.new(
       name: params['name'],
       price: params['price'],
       description: params['description'],
       supplier_id: params['supplier_id'],
       availability: true
     )
-    fruit.save
-    image = Image.create(
-      url: params[:url],
-      fruit_id: params[:fruit_id],
-    )
-    image.save
-    flash[:success] = "#{fruit.name} successfully added"
-    redirect_to '/fruits'
+    if @fruit.save
+      image = Image.create(
+        url: params[:url],
+        fruit_id: params[:fruit_id],
+      )
+      image.save
+      flash[:success] = "#{fruit.name} successfully added"
+      redirect_to '/fruits'
+    else
+      render 'new.html.erb'
+      # we're going to try to repopulate the things the person entered before clicking submit. just put it into the new.html.erb page
+    end
   end
 
   def run_search
@@ -66,6 +71,7 @@ class FruitsController < ApplicationController
   end
 
   def update
+
     @fruit = Fruit.find_by(id: params['id'])
     @fruit.update(
       name: params['name'],
@@ -75,8 +81,12 @@ class FruitsController < ApplicationController
       availability: params['availability']
     )
     @fruit.save
-    flash[:success] = "#{@fruit.name} successfully updated"
-    redirect_to "/fruits/#{@fruit.id}"
+    if @fruit.save
+      flash[:success] = "#{@fruit.name} successfully updated"
+      redirect_to "/fruits/#{@fruit.id}"
+    else
+      render 'edit.html.erb'
+    end
   end
 
   def destroy

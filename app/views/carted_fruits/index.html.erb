@@ -1,7 +1,7 @@
 <h1> Your Fruit Basket: </h1>
 
 <% @carted_fruits.each do |carted_fruit| %>
-    <a href="/fruits/<%= carted_fruit.fruit.images[0].url %>"><h2> <%= carted_fruit.fruit.name.capitalize %> </a> </h2> 
+    <a href="/fruits/<%= carted_fruit.fruit.id %>"><h2> <%= carted_fruit.fruit.name.capitalize %> </a> </h2> 
     <h3><%= carted_fruit.fruit.price %> </h3>
     <h5> <%= carted_fruit.fruit.supplier.name %> </h5>
     <h5> quantity: <%= carted_fruit.quantity %> </h5>

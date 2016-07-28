@@ -17,7 +17,7 @@
 <p> <%= category.name %> <br> </p>
 <% end %>
 <% end %>
-<% if current_user.admin %>
+<% if current_user && current_user.admin %>
 <p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
 <p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
 <% end %> 
@@ -40,7 +40,7 @@
  
 <a href="/fruits">Back to all fruits</a>
 <br>
-<% if current_user.admin %>
+<% if current_user && current_user.admin %>
 <a href="/fruits/<%= @fruit.id %>/edit">Edit this fruit</a>
 </div>
 <div>

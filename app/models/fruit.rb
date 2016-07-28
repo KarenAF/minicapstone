@@ -8,6 +8,13 @@ class Fruit < ActiveRecord::Base
   has_many :carted_fruits
   has_many :users, through: :carted_fruits
   has_many :orders, through: :carted_fruits
+
+  validates :name, presence: true
+  validates :name, uniqueness:true
+  validates :description, uniqueness:true 
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :price, numericality: {greater_than: 0, less_than: 9999}
   
   def description_list
     list = []
