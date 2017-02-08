@@ -25,6 +25,7 @@ class CartedFruitsController < ApplicationController
       # total: (@fruit.tax * params[:quantity].to_i) + (@fruit.price * params[:quantity].to_i)
     )
     carted_fruit.save
+    session[:cart_count] = nil
     flash[:success] = "Product successfully placed in cart!"
     redirect_to "/carted_fruits"
   end
@@ -32,6 +33,7 @@ class CartedFruitsController < ApplicationController
   def destroy
     @carted_fruit = CartedFruit.find_by(id: params[:id])
     @carted_fruit.status = "removed"
+    session[:cart_count] = nil
     @carted_fruit.save
     redirect_to "/carted_fruits"
   end
