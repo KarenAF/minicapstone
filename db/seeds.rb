@@ -29,25 +29,24 @@ Fruit.create!([
 
 fruits = Fruit.all
 image_urls = [
-  "http://mangomaniafl.net/wp-content/uploads/2014/06/iStock_000012591574Medium.jpg", 
-  "http://kingofwallpapers.com/blueberry/blueberry-003.jpg",
-  "http://www.raspberries.us/three-raspberries-636.jpg",
-  "http://perfectimage-llc.com/wp-content/uploads/2015/08/papaya.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091128/minicapstone/mango.jpg", 
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/blueberries.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091127/minicapstone/raspberries.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091127/minicapstone/papaya.jpg",
   "https://loseitapp.files.wordpress.com/2014/09/istock_000014459318_double.jpg",
-  "http://static1.squarespace.com/static/571ab40be707ebff30747a74/571ab8c6d51cd4f1ca1cc0a5/571ab8c6d51cd4f1ca1cc0a6/1461369034949/banana-08.jpg?format=2500w",
-  "https://www.organicfacts.net/wp-content/uploads/2013/05/watermelon2.jpg",
-  "http://kauaiseascapesnursery.com/wp-content/uploads/2015/03/starfruit.jpg",
-  "http://c3.thejournal.ie/media/2013/01/roald-dahl-giant-peach-2-390x285.jpg",
-  "https://vespertunes.files.wordpress.com/2015/11/1_lichee.jpg",
-  "http://www.rockyfordgrowersassociation.com/wp-content/uploads/2013/08/hdew.jpg",
-  "http://www.foodsubs.com/Photos/loganberries3.jpg",
-  "http://edengourmet.com/wp-content/uploads/2014/11/Pineapple_Garden_of_Eden1.jpg",
-  "http://www.gourmetegypt.com/media/catalog/product/p/e/pear-imported-united_1.jpg", 
-  "http://kingofwallpapers.com/orange/orange-003.jpg",
-  "http://divineflavor.com/wp-content/uploads/2014/05/melon-cantaloupejpg.png", 
-  "http://www.nutritious-food.com/wp-content/uploads/2016/01/grapes-02.jpg", 
-  "https://upload.wikimedia.org/wikipedia/commons/1/19/Plantain-Yellow.jpg",
-  "http://bingsbobatea.com/wp-content/uploads/2015/12/fr00016.jpg"
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/bananas.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/watermelon.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/starfruit.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/peach.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091129/minicapstone/lychee.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/honeydew.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/loganberries.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/pineapple.jpg",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/pear.jpg", 
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091124/minicapstone/oranges.png",
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/cantaloupe.png", 
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/grapes.jpg", 
+  "http://res.cloudinary.com/karenaf/image/upload/v1501091128/minicapstone/plantain.jpg"
   ]
 
 image_index = 0  
@@ -55,6 +54,10 @@ fruits.each do |fruit|
   Image.create!({url: image_urls[image_index], fruit_id: fruit.id})
   image_index += 1
 end  
+
+image = Image.create!({url: "http://res.cloudinary.com/karenaf/image/upload/v1501091123/minicapstone/green_apple.jpg", fruit_id: (Fruit.find_by(name: "apple")).id })
+
+
 
 
 # Image.create!([
