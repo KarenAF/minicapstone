@@ -1,6 +1,7 @@
 <h1>Order History</h1>
 <% @orders.each do |order| %>
-<h2> Order id: <%= order.id %> </h2> 
+<a href="/orders/<%= order.id %>"><h2> Order id: <%= order.id %> </h2></a>
+<h5> Order date: <%= order.created_at %> </h5> 
 <h5> Subtotal: <%= order.subtotal %> </h5> 
 <h5> Tax: <%= order.tax %> </h5> 
 <h5> Total: <%= order.total %> </h5> 
