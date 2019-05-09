@@ -2,9 +2,9 @@
 <% @orders.each do |order| %>
 <a href="/orders/<%= order.id %>"><h2> Order id: <%= order.id %> </h2></a>
 <h5> Order date: <%= order.created_at %> </h5> 
-<h5> Subtotal: <%= order.subtotal %> </h5> 
-<h5> Tax: <%= order.tax %> </h5> 
-<h5> Total: <%= order.total %> </h5> 
+<h5> Subtotal: $ <%= order.subtotal %> </h5> 
+<h5> Tax: $ <%= order.tax %> </h5> 
+<h5> Total: $ <%= order.total %> </h5> 
 <h5> Items: </h5> 
 <h5> <% order.carted_fruits.each do |carted_fruit| %> </h5>
 <h3> <%= carted_fruit.fruit.name %> </h3>
