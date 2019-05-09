@@ -47,7 +47,7 @@ class FruitsController < ApplicationController
         fruit_id: params[:fruit_id],
       )
       image.save
-      flash[:success] = "#{fruit.name} successfully added"
+      flash[:success] = "#{@fruit.name} successfully added"
       redirect_to '/fruits'
     else
       render 'new.html.erb'
