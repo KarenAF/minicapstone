@@ -18,8 +18,10 @@
 <% end %>
 <% end %>
 <% if current_user && current_user.admin %>
-<p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
-<p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
+  <p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
+  <% if @fruit.images.count > 0 %>
+    <p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
+  <% end %> 
 <% end %> 
 <p>Supplier: <%= @fruit.supplier.name %> </p>
 
