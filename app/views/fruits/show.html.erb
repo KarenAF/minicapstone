@@ -21,6 +21,7 @@
   <p><%= link_to "New image", "/fruits/#{@fruit.id}/images/new", class: "btn btn-success"%></p>
   <% if @fruit.images.count > 0 %>
     <p><%= link_to "Edit first image", "/fruits/#{@fruit.id}/images/edit", class: "btn btn-success"%></p>
+    <p><%= link_to "Delete first image", "/fruits/#{@fruit.id}/images", class: "btn btn-success", method: :delete %> </p>
   <% end %> 
 <% end %> 
 <p>Supplier: <%= @fruit.supplier.name %> </p>

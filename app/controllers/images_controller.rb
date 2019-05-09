@@ -29,4 +29,10 @@ class ImagesController < ApplicationController
       flash[:success] = "first image successfully updated"
       redirect_to "/fruits/#{params[:fruit_id]}"
     end
+
+    def destroy
+      @fruit = Fruit.find_by(id: params[:fruit_id])
+      @fruit.images[0].destroy
+      redirect_to '/fruits'
+    end
 end
